@@ -1,3 +1,4 @@
 import pyautogui as py
+buscador = py.position()
 
-print(py.position())
+print(buscador.x)
