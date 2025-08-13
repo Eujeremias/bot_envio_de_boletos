@@ -23,33 +23,54 @@ def limpa_campos():
     py.hotkey("ctrl", "a")
     py.press("backspace")
 
-# FOCANDO NAS JANELAS - APENAS UMA VEZ
-proxima_janela(1)
-proxima_janela(2)
-proxima_janela(3)
-py.PAUSE = tempo_de_espera
+# proxima_janela(1)
+# proxima_janela(2)
+# proxima_janela(3)
+# py.PAUSE = tempo_de_espera
 
-# COPIANDO VALOR NA CÉLULA DA PLANILHA
-proxima_janela(1)
-py.moveTo(1317, 373)
-py.click()
-py.hotkey("ctrl", "c")
+# # COPIANDO VALOR NA CÉLULA DA PLANILHA
+# proxima_janela(1)
+# py.moveTo(1317, 373)
+# py.click()
+# py.hotkey("ctrl", "c")
 
 # ------------------------------------ #
 
 buscador_whatsapp_x = 283
 buscador_whatsapp_y = 258
 
-for i in range(2):     
+for i in range(2):   
+    
+    # FOCANDO NAS JANELAS - APENAS UMA VEZ
+    proxima_janela(1)
+    proxima_janela(2)
+    proxima_janela(3)
+    py.PAUSE = tempo_de_espera
+    proxima_janela(1)
+    
+    if(i == 5):
+        # COPIANDO VALOR NA CÉLULA DA PLANILHA
+        py.moveTo(1317, 373)
+        print(f"{i + 1}° execução - movendo cursor para célula")
+        py.click()
+        
+    print(f"{i + 1}° execução - clicando na célula")
+    py.hotkey("ctrl", "c")
+    print(f"{i + 1}° execução - copiando valor da célula")
+    
     # NA PÁGINA DO WHATSAPP - BUSCA NOME DO CONTATO
     proxima_janela(2)
     py.moveTo(buscador_whatsapp_x, buscador_whatsapp_y)
+    print(f"{i + 1}° execução - cursor no buscador do whatsapp")
     py.click()
+    print(f"{i + 1}° execução - clicando no buscador")
     limpa_campos()
     py.hotkey("ctrl", "v")
+    print(f"{i + 1}° execução - colando valor no buscador")
     py.press("tab")
     py.press("tab")
     py.press("enter")
+    print(f"{i + 1}° execução - entrando na chat do recebedor")
     
     # NA PÁGINA DA PLANILHA - COPIANDO NOME DO RECEBEDOR
     proxima_janela(1)
@@ -59,7 +80,7 @@ for i in range(2):
     py.press("down")
 
     # NA PÁGINA DE BOLETOS - COPIANDO BOLETO COM NOME DO RECEBEDOR
-    proxima_janela(3)
+    proxima_janela(2)
     py.hotkey("ctrl", "f")
     limpa_campos()
     py.hotkey("ctrl", "v")
@@ -79,13 +100,5 @@ for i in range(2):
     proxima_janela(3)
     proxima_janela(3)
     proxima_janela(1)
-    
-    proxima_janela(1)
-    proxima_janela(2)
-    proxima_janela(3)
-    py.PAUSE = tempo_de_espera
-    proxima_janela(1)
-    
-
     
     # NA PÁGINA DA PLANILHA - COPIA NOME DO RECEBEDOR
